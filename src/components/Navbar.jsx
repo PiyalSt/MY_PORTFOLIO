@@ -30,7 +30,7 @@ const Navbar = () => {
           href="#home"
           className="text-lg sm:text-xl font-black tracking-widest text-white shrink-0"
         >
-          MD. PIYAL <span className="text-purple-500">HASAN.</span>
+          PIYAL<span className="text-purple-500">ST.</span>
         </a>
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
