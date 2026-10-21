@@ -4,7 +4,7 @@ import assets from "../assets/assets";
 
 const Hero = () => {
   const [words, setWords] = useState([
-    "Web Developer",
+    "Web Designer",
     "Frontend Developer",
     "Backend Developer",
   ]);
@@ -137,9 +137,40 @@ const Hero = () => {
               <span className="text-purple-400 text-3xl lg:text-5xl xl:text-6xl font-medium">
                 {displayedText}
               </span>
-              <span className="w-1 h-6 sm:h-8 md:h-10 lg:h-12 bg-purple-400 ml-1 sm:ml-2 inline-block"/>
+              <span className="w-1 h-6 sm:h-8 md:h-10 lg:h-12 bg-purple-400 ml-1 sm:ml-2 inline-block" />
             </div>
           </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-zinc-400 text-lg max-w-xl font-light leading-relaxed my-2 sm:my-4 px-2 sm:px-0"
+          >
+            Motivated and detail-oriented Frontend Developer with hands-on
+            experience building responsive and interactive web applications
+            using HTML, CSS, JavaScript, React.js, Vite, Tailwind CSS, and
+            Firebase. Comfortable working with REST APIs, authentication, CRUD
+            operations, Git/GitHub, and modern UI development.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-wrap gap-3 sm:gap-4 mt-1 sm:mt-2 justify-center lg:justify-start"
+          >
+            <a
+              href="#contact"
+              className="px-8 py-3.5 bg-purple-500 text-zinc-950 font-bold rounded-full hover:scale-105 text-xs sm:text-sm"
+            >
+              Contact Me
+            </a>
+            <a
+              href="#work"
+              className="px-8 py-3.5 border-2 border-purple-500/80 text-purple-500 transition-all duration-300 font-bold rounded-full hover:scale-105 text-xs sm:text-sm"
+            >
+              My Work
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>
