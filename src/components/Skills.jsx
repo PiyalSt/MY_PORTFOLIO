@@ -1,6 +1,7 @@
-import { useInView } from "framer-motion";
-import React, { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
 import {
+  FaCode,
   FaCog,
   FaFigma,
   FaGitAlt,
@@ -56,10 +57,64 @@ const Skills = () => {
     },
   };
 
+  const filteredSkills = skillsCategories[activeCategory]?.skills || [];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.08, delayChildren: 0.3 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 0, opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { type: "spring", damping: 12, stiffness: 100 },
+    },
+  };
+
   return (
-    <div>
-      <div>fsdjf</div>
-    </div>
+    <section
+      id="skills"
+      ref={ref}
+      className="lg:min-h-screen text-white py-24 lg:py-28 px-4 sm:px-6 scroll-m-12 relative overflow-hidden"
+    >
+      <div className="absolute top-1/3 right-0 w-44 h-44 lg:w-96 lg:h-80 bg-purple-400/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-1/3 left-0 w-44 h-44 lg:w-96 lg:h-80 bg-purple-400/25 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={ isInView ? { opacity: 1, y: 0} : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={ isInView ? { opacity: 1 } : {} }
+            transition={{ delay: 0.2 }}
+            className="text-purple-400 font-semibold text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3"
+          >
+            My Expertise
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={ isInView ? { opacity: 1, y: 0} : {}}
+            transition={{ delay: 0.3 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold"
+          >
+            Skills & {' '}
+            <span className="bg-linear-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+              Technologies
+            </span>
+          </motion.h2>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
